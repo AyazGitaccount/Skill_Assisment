@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    
 });
 
 require __DIR__.'/auth.php';
@@ -56,10 +57,10 @@ require __DIR__.'/adminauth.php';
 
 Route::middleware(['auth:admin','verified'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'users_details'])->name('admin.dashboard');
-
-
 });
 
 Route::get('/links', [ShortUserController::class, 'index'])->name('user.links')->middleware('auth');
 Route::post('/short', [ShortUrlController::class, 'short'])->name('short');
 Route::get('/{code}', [ShortUrlController::class, 'show'])->name('short.show');
+Route::get('/user_delete/{id}', [ShortUserController::class, 'delete'])->name('user.delete');
+Route::get('/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete');
