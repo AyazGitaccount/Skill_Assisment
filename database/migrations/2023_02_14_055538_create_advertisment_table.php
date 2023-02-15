@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('short_urls', function (Blueprint $table) {
+        Schema::create('advertisment', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained();
-            $table->text('original_url');
-            $table->string('short_url')->nullable();
+            $table->string('add_url');
+            $table->string('vists')->default(0);
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('short_urls');
+        Schema::dropIfExists('advertisment');
     }
 };

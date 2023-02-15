@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('short_urls', function (Blueprint $table) {
+        Schema::create('vistor_info', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained();
-            $table->text('original_url');
-            $table->string('short_url')->nullable();
+            $table->string('vistor_IP')->nullable();
+            $table->string('country_IP')->nullable();
+            $table->string('city_IP')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('short_urls');
+        Schema::dropIfExists('vistor_info');
     }
 };

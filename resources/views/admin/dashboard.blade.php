@@ -39,8 +39,8 @@
                                          <td class="px-6 py-4 whitespace-nowrap">{{ $item->email }}</td>
                                          <td class="px-6 py-4 whitespace-nowrap">{{ $item->short_url }}</td>
                                          <td class="px-6 py-4 whitespace-nowrap">{{ $item->original_url }}</td>
-                                         <td class="px-6 py-4 whitespace-nowrap">{{ $item->vists }}</td>
-                                         <td class="px-6 py-4 whitespace-nowrap">{{ $item->vistor_IP }}</td>
+                                         {{-- <td class="px-6 py-4 whitespace-nowrap">{{ $item->vists }}</td>
+                                         <td class="px-6 py-4 whitespace-nowrap">{{ $item->vistor_IP }}</td> --}}
                                          
                                          
                                          <td class="px-6 py-4 text-right text-sm">

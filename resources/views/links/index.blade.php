@@ -25,7 +25,7 @@
                       <tr>
                       <td class="px-6 py-4 whitespace-nowrap">{{ $link->id }}</td>
                       <td class="px-6 py-4 whitespace-wrap" style="word-wrap: break-word">{{ $link->original_url }}</td>
-                      <td class="px-6 py-4 whitespace-nowrap ">{{ url($link->short_url) }}</td>
+                      <td class="px-6 py-4 whitespace-nowrap "><a target="_blank" href="{{ $link->short_url }}">{{ url($link->short_url) }} </a></td>
                       <td class="px-6 py-4 whitespace-nowrap">{{ $link->vists }}</td>
                       <td class="px-6 py-4 whitespace-nowrap">
                       </td>

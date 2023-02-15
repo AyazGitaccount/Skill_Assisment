@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ShortRequest;
 use Illuminate\Http\Request;
 use App\Models\ShortUrl;
+use App\Models\Advertisment;
 
 
 class ShortUrlController extends Controller
@@ -44,17 +45,25 @@ class ShortUrlController extends Controller
     public function show($code)
     {
         $short_url = ShortUrl::where('short_url', $code)->first();
+        $add = Advertisment::all()->random(1);
 
         if($short_url){
             
             $clientIP = request()->ip();
-            $short_url->increment('vists');
-            // $short_url -> update([
-            //     'vistor_IP' => $clientIP
-            // ]);
+            // $short_url->increment('vists');
+            $short_url->update([
+                'vistor_IP' => $clientIP
+            ]);
 
-            return redirect()->to(url($short_url->original_url));
+            // insert in visitor info table
+            // view a page
+            // show advert here
+           //view call + 
+            return view('advertisment', compact('short_url','add'));
+            // return redirect()->to(url('adds'));
+            // return redirect()->to(url($short_url->original_url));
         }
+        
 
         return redirect()->to(url('/'));
     }

@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShortUrlController;
 use App\Http\Controllers\ShortUserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AddsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,7 +58,12 @@ require __DIR__.'/adminauth.php';
 
 Route::middleware(['auth:admin','verified'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'users_details'])->name('admin.dashboard');
+    Route::post('/adds', [AdminController::class, 'add_advertisment'])->name('admin.add_advertisment');
+    Route::get('/admin/admin_adds', [AddsController::class, 'get_adds'])->name('admin.stats');
 });
+
+
+
 
 Route::get('/links', [ShortUserController::class, 'index'])->name('user.links')->middleware('auth');
 Route::post('/short', [ShortUrlController::class, 'short'])->name('short');
