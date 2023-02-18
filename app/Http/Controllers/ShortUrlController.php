@@ -45,23 +45,22 @@ class ShortUrlController extends Controller
     public function show($code)
     {
         $short_url = ShortUrl::where('short_url', $code)->first();
-        $add = Advertisment::all()->random(1);
-
+        $add = Advertisment::all()->random(1)->first();
+        
         if($short_url){
             
             $clientIP = request()->ip();
-            // $short_url->increment('vists');
-            $short_url->update([
-                'vistor_IP' => $clientIP
-            ]);
+            $add->increment('vists');
+            // $short_url->update([
+            //     'vistor_IP' => $clientIP
+            // ]);
 
             // insert in visitor info table
             // view a page
             // show advert here
-           //view call + 
+    
             return view('advertisment', compact('short_url','add'));
-            // return redirect()->to(url('adds'));
-            // return redirect()->to(url($short_url->original_url));
+         
         }
         
 

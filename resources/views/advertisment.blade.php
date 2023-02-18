@@ -11,27 +11,31 @@
 </head>
 
 <body>
-    <div class="container mt-2">
-        <div class="p-5 mb-4 bg-light rounded-3">
-            <div class="container-fluid py-2">
-                <h1 class="display-5 fw-bold ">Custom jumbotron </h1>
-                <h4 id='timer'> 5 </h4>                    
-                <a class="btn btn-primary btn-lg" href="{{ $short_url['original_url'] }}" id="skip-button" style="display:none;"  role="button">Skipp <i class="fa-solid fa-forward-fast"></i></a>
+    <section>
+        <div class="container-fluid mt-2">
+            <div class="p-5 mb-4 bg-secondary text-light rounded-3">
+                <div class=" input-group container-fluid py-2">
+                    <h1 class="display-5 fw-bold ">Advertisment</h1>
+                    <div class="mx-3 mt-2">
+
+                        <h4 class="mt-3 mx-3" id='timer'> 5 </h4>                    
+                        <a class="btn btn-primary btn-lg" href="{{ $short_url['original_url'] }}" id="skip-button" style="display:none;"  role="button">Skipp <i class="fa-solid fa-forward-fast"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-
-    <div class="container">
+    </section>
+<section>
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 mt-2">
+            <div class="col mt-2">
                 <div class="ratio" style="--bs-aspect-ratio: 50%;">
-                    <iframe src="https://www.youtube.com/embed/NsFSA-MQjeY?autoplay=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe src="{{ $add['add_url'] }}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </div>
-    {{-- <iframe width="560" height="315" src="https://www.youtube.com/embed/NsFSA-MQjeY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> --}}
+</section>
 
 
     <script>

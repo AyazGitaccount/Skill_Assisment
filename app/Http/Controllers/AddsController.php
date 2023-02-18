@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\ShortUrl;
+use App\Models\Advertisment;
 
 
 
@@ -17,10 +18,11 @@ class AddsController extends Controller
         return view('admin.statistics', ['data'=>$data]);
     }
 
-    public function skip_to_url()
+    public function delete_ad($id)
     {
         
-        // $short_url = ShortUrl::where('short_url', $id)->first();
+        Advertisment::destroy($id);
+        return back();
             
     }
 }

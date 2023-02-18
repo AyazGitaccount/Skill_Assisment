@@ -60,6 +60,7 @@ Route::middleware(['auth:admin','verified'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'users_details'])->name('admin.dashboard');
     Route::post('/adds', [AdminController::class, 'add_advertisment'])->name('admin.add_advertisment');
     Route::get('/admin/admin_adds', [AddsController::class, 'get_adds'])->name('admin.stats');
+    Route::get('/admin/delete_ad/{id}', [AddsController::class, 'delete_ad'])->name('admin.delete_ad');
 });
 
 
