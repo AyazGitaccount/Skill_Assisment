@@ -6,6 +6,7 @@ use App\Http\Requests\ShortRequest;
 use Illuminate\Http\Request;
 use App\Models\ShortUrl;
 use App\Models\Advertisment;
+use App\Models\VistorInfo;
 
 
 class ShortUrlController extends Controller

@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <h3 class="text-4xl font-bold text-center">Admin register</h3>
+    <h3 class="text-4xl font-bold text-center">Admin registration</h3>
     <form method="POST" action="{{ route('admin.register') }}">
         @csrf
 

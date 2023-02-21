@@ -59,6 +59,9 @@
                     </tbody>
                   </table>
                 </div>
+                <div class="pt-3">
+                  {!! $data->withQueryString()->links() !!} 
+                </div>
               </div>
             </div>
           </div>

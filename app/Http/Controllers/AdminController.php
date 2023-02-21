@@ -16,7 +16,7 @@ class AdminController extends Controller
        $data = DB::table('short_urls')
        ->join('users','short_urls.user_id','=','users.id')
        ->select('users.name','users.email','short_urls.id','short_urls.short_url','short_urls.original_url')
-       ->get();
+       ->paginate(3);
        
        return view('admin.dashboard', compact('data'));
   }   
