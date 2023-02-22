@@ -7,16 +7,6 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AddsController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -60,14 +50,13 @@ Route::middleware(['auth:admin','verified'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'users_details'])->name('admin.dashboard');
     Route::post('/adds', [AdminController::class, 'add_advertisment'])->name('admin.add_advertisment');
     Route::get('/admin/admin_adds', [AddsController::class, 'get_adds'])->name('admin.stats');
-    Route::get('/admin/delete_ad/{id}', [AddsController::class, 'delete_ad'])->name('admin.delete_ad');
+    Route::delete('/admin/delete_ad/{id}', [AddsController::class, 'delete_ad'])->name('admin.delete_ad');
 });
-
-
 
 
 Route::get('/links', [ShortUserController::class, 'index'])->name('user.links')->middleware('auth');
 Route::post('/short', [ShortUrlController::class, 'short'])->name('short');
 Route::get('/{code}', [ShortUrlController::class, 'show'])->name('short.show');
-Route::get('/user_delete/{id}', [ShortUserController::class, 'delete'])->name('user.delete');
-Route::get('/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete');
+Route::delete('/user_delete/{id}', [ShortUserController::class, 'delete'])->name('user.delete');
+Route::delete('/delete/{id}', [AdminController::class, 'delete'])->name('admin.delete');
+

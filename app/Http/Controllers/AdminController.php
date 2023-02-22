@@ -16,7 +16,7 @@ class AdminController extends Controller
        $data = DB::table('short_urls')
        ->join('users','short_urls.user_id','=','users.id')
        ->select('users.name','users.email','short_urls.id','short_urls.short_url','short_urls.original_url')
-       ->paginate(3);
+       ->paginate(5);
        
        return view('admin.dashboard', compact('data'));
   }   
@@ -39,7 +39,7 @@ class AdminController extends Controller
   $data = new Advertisment();
   $data->add_url = $validateData['add_url'];
   $data->save();
-  return back();
+  return back()->withSuccess('Advertisment added successfully !');
 
   }
 }

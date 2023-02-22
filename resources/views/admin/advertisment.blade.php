@@ -4,6 +4,14 @@
       {{ __('Dashboard') }}
     </h2>
   </x-slot>
+  @if(Session::has('success'))
+  <div class="alert alert-success">
+    <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+      <span class="font-medium">Success !</span> Advertisment added successfully
+    </div>      
+  </div>
+  
+@endif
 
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

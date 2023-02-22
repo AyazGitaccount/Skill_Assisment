@@ -46,11 +46,15 @@
                         <td class="px-6 py-4 whitespace-nowrap">{{ $item->short_url }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $item->original_url }}</td>
                         <td class="px-6 py-4 text-right text-sm">
-                          <a class="px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg
-                                              focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 
-                                              ease-in-out" href="{{ route('admin.delete',$item->id) }}">
+                          <form action="{{ route('admin.delete',$item->id) }}" method="POST" >
+                            @csrf
+                            @method('DELETE')
+                           <button class="px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg
+                                focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 
+                                ease-in-out" href="" onclick="return confirm('Sure Want To Delete? {{ $item->name }}')">
                             Delete
-                          </a>
+                           </button>
+                          </form>
                         </td>
                       </tr>
                       @endforeach

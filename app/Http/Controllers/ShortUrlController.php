@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ShortRequest;
-use Illuminate\Http\Request;
 use App\Models\ShortUrl;
 use App\Models\Advertisment;
-use App\Models\VistorInfo;
 
 
 class ShortUrlController extends Controller
@@ -28,14 +26,13 @@ class ShortUrlController extends Controller
             ]);
            }
            
-
             if($new_url){
                 $short_url = base_convert($new_url->id, 10,36);
                 $new_url -> update([
                     'short_url' => $short_url
                 ]);
                 
-                return redirect()->back()->with('success_message','Your short URL: <a class="text-green-500" target="_blank" href="'.url($short_url).'">'.url($short_url).'</a>' );
+                return redirect()->back()->with('success_message','Your short URL: <a class="text-green-500 ml-2" target="_blank" href="'.url($short_url).'">'.url($short_url).'</a>' );
             }
         }
 
@@ -51,15 +48,7 @@ class ShortUrlController extends Controller
         if($short_url){
             
             $clientIP = request()->ip();
-            $add->increment('vists');
-            // $short_url->update([
-            //     'vistor_IP' => $clientIP
-            // ]);
-
-            // insert in visitor info table
-            // view a page
-            // show advert here
-    
+            $add->increment('vists');    
             return view('advertisment', compact('short_url','add'));
          
         }

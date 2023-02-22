@@ -4,7 +4,6 @@
             {{ __('URl Shortner') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-200 overflow-hidden shadow-sm sm:rounded-lg">
@@ -39,7 +38,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="form-label inline-block mb-2 text-gray-700">
+                                <div class="form-label inline-block mb-2 mx-4 text-gray-700">
 
                                     @if(session('success_message'))
                                     {!! session('success_message') !!}
@@ -50,7 +49,6 @@
                                  focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 
                                  ease-in-out">Short</button>
                             </form>
-
                         </div>
                     </div>
                 </div>
